@@ -6,7 +6,6 @@ import { api$, notFound$, postPiece$, getPiece$ } from './api.effects';
 const middlewares = [
   logger$(),
   bodyParser$(),
-  // ...
 ];
 
 const effects = [
@@ -14,8 +13,6 @@ const effects = [
   postPiece$,
   getPiece$,
   notFound$
-  // endpoint2$
-  // ...
 ];
 
 export default httpListener({ middlewares, effects });
