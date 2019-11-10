@@ -1,7 +1,7 @@
 import { httpListener } from '@marblejs/core';
 import { logger$ } from '@marblejs/middleware-logger';
 import { bodyParser$ } from '@marblejs/middleware-body';
-import { api$ } from './api.effects';
+import { api$, notFound$, postPiece$, getPiece$ } from './api.effects';
 
 const middlewares = [
   logger$(),
@@ -11,6 +11,9 @@ const middlewares = [
 
 const effects = [
   api$,
+  postPiece$,
+  getPiece$,
+  notFound$
   // endpoint2$
   // ...
 ];
