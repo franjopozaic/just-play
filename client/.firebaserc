@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "just-play-e164d": {
+      "hosting": {
+        "client": [
+          "just-play-e164d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "just-play-e164d"
+  }
+}
