@@ -20,6 +20,8 @@ import { MatListModule } from '@angular/material/list';
 import {MatInputModule} from '@angular/material/input';
 import { JournalComponent } from './journal/journal.component';
 import { LoginComponent } from './login/login.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [AppComponent, JournalComponent, LoginComponent],
@@ -39,7 +41,9 @@ import { LoginComponent } from './login/login.component';
     MatIconModule,
     MatListModule,
     MatInputModule,
-    MatMenuModule
+    MatMenuModule,
+    MatExpansionModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
