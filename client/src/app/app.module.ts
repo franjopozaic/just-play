@@ -22,6 +22,8 @@ import { JournalComponent } from './journal/journal.component';
 import { LoginComponent } from './login/login.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatChipsModule} from '@angular/material/chips';
+import {YouTubePlayerModule} from '@angular/youtube-player';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [AppComponent, JournalComponent, LoginComponent],
@@ -43,7 +45,9 @@ import {MatChipsModule} from '@angular/material/chips';
     MatInputModule,
     MatMenuModule,
     MatExpansionModule,
-    MatChipsModule
+    MatChipsModule,
+    YouTubePlayerModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],
