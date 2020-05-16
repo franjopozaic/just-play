@@ -1,38 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormControl } from '@angular/forms';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase/app';
 
 @Component({
   selector: 'app-login',
   template: `
-    <div class="example-container">
-
-      <mat-form-field appearance="fill">
-        <mat-label>Enter your password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" />
-        <button
-          mat-icon-button
-          matSuffix
-          (click)="hide = !hide"
-          [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide"
-        >
-          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
-        </button>
-      </mat-form-field>
-    </div>
+    <p>Please login.</p>
+    <button (click)="login()">Login with Google</button>
   `,
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
-  email: FormControl;
-  hide = false;
-  constructor(private formBuilder: FormBuilder) {
-    this.email = this.formBuilder.control('', [Validators.email]);
-  }
+export class LoginComponent {
+  constructor(public firebaseAuth: AngularFireAuth) {}
 
-  getErrorMessage() {
-    return '';
+  login() {
+    this.firebaseAuth.signInWithPopup(new auth.GoogleAuthProvider());
   }
-
-  ngOnInit(): void {}
 }
