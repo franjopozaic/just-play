@@ -7,6 +7,13 @@ import { tap } from 'rxjs/operators';
 @Component({
   selector: 'app-journal',
   template: `
+    <section>
+      <div class="example-button-row">
+        <button (click)="onNewEntry()" mat-raised-button>New entry</button>
+      </div>
+    </section>
+    <mat-divider></mat-divider>
+    <app-journal-input *ngIf="showInput"></app-journal-input>
     <mat-accordion [multi]="true">
       <mat-expansion-panel [expanded]="true" *ngFor="let item of items | async">
         <mat-expansion-panel-header>
@@ -36,7 +43,7 @@ import { tap } from 'rxjs/operators';
             </mat-chip-list>
           </mat-card-content>
           <mat-card-actions>
-            <button mat-button>TO CURRENT SCHEDULE</button>
+            <button mat-button>WORKING ON IT</button>
           </mat-card-actions>
         </mat-card>
       </mat-expansion-panel>
@@ -46,7 +53,7 @@ import { tap } from 'rxjs/operators';
 })
 export class JournalComponent implements OnInit {
   items: Observable<any>;
-
+  showInput = false;
   constructor(private service: JournalService) {}
 
   ngOnInit(): void {
@@ -55,5 +62,9 @@ export class JournalComponent implements OnInit {
 
     tag.src = 'https://www.youtube.com/iframe_api';
     document.body.appendChild(tag);
+  }
+
+  onNewEntry() {
+    this.showInput = !this.showInput;
   }
 }
